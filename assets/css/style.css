@@ -1,16 +1,11 @@
 /*===== GOOGLE FONTS =====*/
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-/*===== VARIABLES CSS ( các hàm biến trong CSS ) =====*/
+/*===== VARIABLES CSS (  Toàn bộ các biến trong CSS )  =====*/
 :root {
   --header-height: 3rem;
 
-  /*========== Colors ( Bảng mã màu ) ==========*/ 
+  /*========== Colors ==========*/
   --first-color: #069C54;
   --first-color-alt: #048654;
   --title-color: #393939;
@@ -19,7 +14,7 @@
   --body-color: #FBFEFD;
   --container-color: #FFFFFF;
 
-  /*========== Font and typography ( font chữ  ) ==========*/
+  /*========== Font and typography ==========*/
   --body-font: 'Poppins', sans-serif;
   --biggest-font-size: 2.25rem;
   --h1-font-size: 1.5rem;
@@ -67,7 +62,7 @@ html{
   scroll-behavior: smooth;
 }
 
-/*========== Variables Dark theme  ( Các màu tối *dùng phù hợp với màu tối tím của quán )  ==========*/
+/*========== Variables Dark theme ==========*/
 body.dark-theme{
   --title-color: #F1F3F2;
   --text-color: #C7D1CC;
@@ -75,7 +70,7 @@ body.dark-theme{
   --container-color: #27302C;
 }
 
-/*========== Button Dark/Light ( Nút chỉnh màu sáng tối ) ==========*/
+/*========== Button Dark/Light ==========*/
 .change-theme{
   position: absolute;
   right: 1rem;
@@ -156,7 +151,7 @@ img{
   background-color: var(--body-color);
 }
 
-/*========== NAV ( Phần nav bar )  ==========*/
+/*========== NAV ==========*/
 .nav{
   max-width: 1024px;
   height: var(--header-height);
@@ -207,22 +202,22 @@ img{
   cursor: pointer;
 }
 
-/* Show menu ( Hiện Menu ) */
+/* Show menu */
 .show-menu{
   top: var(--header-height);
 }
 
-/* Active menu ( Phần linh hoạt của MENU )  */
+/* Active menu */
 .active-link{
   color: var(--first-color);
 }
 
-/* Change background header ( Chỉnh màu nền background )*/
+/* Change background header */
 .scroll-header{
   box-shadow: 0 2px 4px rgba(0,0,0,.1);
 }
 
-/* Scroll top ( Cuộn chuột lăn lên & xuống ) */
+/* Scroll top */
 .scrolltop{
   position: fixed;
   right: 1rem;
@@ -253,7 +248,7 @@ img{
   bottom: 1.5rem;
 }
 
-/*========== HOME ( Trang Chủ ) ==========*/
+/*========== HOME ==========*/
 .home__container{
   height: calc(100vh - var(--header-height));
   align-content: center;
@@ -274,9 +269,10 @@ img{
 .home__img{
   width: 300px;
   justify-self: center;
+  border-radius: 25px;
 }
 
-/*========== BUTTONS ( Các nút bấm  ) ==========*/
+/*========== BUTTONS ==========*/
 .button{
   display: inline-block;
   background-color: var(--first-color);
@@ -290,22 +286,23 @@ img{
   background-color: var(--first-color-alt);
 }
 
-/* ========== ABOUT ( VỀ TỤI MÌNH ) ========== */
+/*========== ABOUT ==========*/
 .about__data{
   text-align: center;
 }
 
-.about__description{ 
-  margin-bottom:  var(--mb-3);
+.about__description{
+  margin-bottom: var(--mb-3);
 }
 
 .about__img{
-  width: 280px;
-  border-radius: .5rem;
+  width: 300px;
+  border-radius: 50%;
   justify-self: center;
+
 }
 
-/* ========== SERVICES ( CHẤT LƯỢNG PHỤC VỤ CỦA QUÁN ) ========== */
+/*========== SERVICES ==========*/
 .services__container{
   row-gap: 2.5rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -328,12 +325,11 @@ img{
   margin-bottom: var(--mb-1);
 }
 
-.services__description{ 
+.services__description{
   padding: 0 1.5rem;
 }
 
-
-/* ========== MENU ========== */
+/*========== MENU ==========*/
 .menu__container{
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
@@ -381,8 +377,7 @@ img{
   border-radius: .5rem 0 .5rem 0;
 }
 
-
-/* ========== APP ========== */
+/*========== APP ==========*/
 .app__data{
   text-align: center;
 }
@@ -395,51 +390,174 @@ img{
   margin-bottom: var(--mb-4);
 }
 
-
-.app__stores{ 
+.app__store{
   width: 120px;
   margin: 0 var(--mb-1);
 }
-
 
 .app__img{
   width: 230px;
   justify-self: center;
 }
 
+/*========== CONTACT ==========*/
+.contact__container{
+  text-align: center;
+}
 
+.contact__description{
+  margin-bottom: var(--mb-3);
+}
 
+/*========== FOOTER ==========*/
+.footer__container{
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  row-gap: 2rem;
+}
 
+.footer__logo{
+  font-size: var(--h3-font-size);
+  color: var(--first-color);
+  font-weight: var(--font-semi-bold);
+}
 
+.footer__description{
+  display: block;
+  font-size: var(--small-font-size);
+  margin: .25rem 0 var(--mb-3);
+}
 
+.footer__social{
+  font-size: 1.5rem;
+  color: var(--title-color);
+  margin-right: var(--mb-2);
+}
 
+.footer__title{
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  margin-bottom: var(--mb-2);
+}
 
+.footer__link{
+  display: inline-block;
+  color: var(--text-color);
+  margin-bottom: var(--mb-1);
+}
 
+.footer__link:hover{
+  color: var(--first-color);
+}
 
+.footer__copy{
+  text-align: center;
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  margin-top: 3.5rem;
+}
 
+/*========== MEDIA QUERIES ==========*/
+@media screen and (min-width: 576px){
+  .home__container,
+  .about__container,
+  .app__container{
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+  }
 
+  .about__data, .about__initial,
+  .app__data, .app__initial,
+  .contact__container, .contact__initial{
+    text-align: initial;
+  }
 
+  .about__img, .app__img{
+    width: 380px;
+    order: -1;
+  }
 
+  .contact__container{
+    grid-template-columns: 1.75fr 1fr;
+    align-items: center;
+  }
+  .contact__button{
+    justify-self: center;
+  }
+}
 
+@media screen and (min-width: 768px){
+  body{
+    margin: 0;
+  }
 
- 
+  .section{
+    padding-top: 8rem;
+  }
 
+  .nav{
+    height: calc(var(--header-height) + 1.5rem);
+  }
+  .nav__list{
+    display: flex;
+  }
+  .nav__item{
+    margin-left: var(--mb-5);
+    margin-bottom: 0;
+  }
+  .nav__toggle{
+    display: none;
+  }
 
+  .change-theme{
+    position: initial;
+    margin-left: var(--mb-2);
+  }
 
+  .home__container{
+    height: 100vh;
+    justify-items: center;
+  }
 
+  .services__container,
+  .menu__container{
+    margin-top: var(--mb-6);
+  }
 
+  .menu__container{
+    grid-template-columns: repeat(3, 210px);
+    column-gap: 4rem;
+  }
+  .menu__content{
+    padding: 1.5rem;
+  }
+  .menu__img{
+    width: 130px;
+  }
 
+  .app__store{
+    margin: 0 var(--mb-1) 0 0;
+  }
+}
 
+@media screen and (min-width: 960px){
+  .bd-container{
+    margin-left: auto;
+    margin-right: auto;
+  }
 
+  .home__img{
+    width: 500px;
+  }
 
+  .about__container,
+  .app__container{
+    column-gap: 7rem;
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
+/* For tall screens on mobiles y desktop*/
+@media screen and (min-height: 721px) {
+    .home__container {
+        height: 640px;
+    }
+}

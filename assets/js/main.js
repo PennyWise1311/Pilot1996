@@ -29,15 +29,15 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 /*======== Scroll sections active link ========*/
 const sections = document.querySelectorAll('section[id]')
 
-function scrollActive(){ 
-    const scrolly = window.pageYOffset
+function scrollActive(){
+    const scrollY = window.pageYOffset
 
-    sections.forEach(current => { 
+    sections.forEach(current =>{
         const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop -50;
+        const sectionTop = current.offsetTop - 50;
         sectionId = current.getAttribute('id')
 
-        if(scrolly > sectionTop && scrolly <= sectionTop + sectionHeight){ 
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
         }else{
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
@@ -48,7 +48,7 @@ window.addEventListener('scroll', scrollActive)
 
 
 
-/* ========= Thay đổi màu nền background  ==========*/
+/* ========= Thay đổi màu nền background  CHANGE BACKGROUND COLOR THEME ==========*/
 function scrollHeader(){
     const nav = document.getElementById('header')
     // When the scoll is greater then 200 viewport height , add the scroll header class 
@@ -61,9 +61,60 @@ window.addEventListener('scroll', scrollHeader)
 
 /*===== Show scroll top ( hiện ra các con lăn ) =====*/ 
 function scrollTop(){
-    const scrollTop = document.getElementById('scroll-top')
-    //  when the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class 
-    if(this.scrolly >= 560 ) scrollTop.classList.add('scroll-top'); else scrollTop.classList.remove('scroll-top')
+    const scrollTop = document.getElementById('scroll-top');
+    // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
+    if(this.scrollY >= 560) scrollTop.classList.add('show-scroll'); else scrollTop.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollTop)
+
+
+
+/* ========== DARK LIGHT THEME ==========*/
+const themeButton = document.getElementById('theme-button')
+const darkTheme ='dark-theme'
+const iconTheme ='bx-sun'
+
+// Previously selected topic ( if user selected )
+const selectedTheme = localStorage.getItem('selected-theme')
+const selectedIcon = localStorage.getItem('selected-icon')
+
+// We obtain the current theme that the interface has by validating the dark-theme class 
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'bx-moon' : 'bx-sun'
+
+// We validate if the user previously chose a topic 
+if (selectedTheme){ 
+    // If the validation is fulfilled, we ask what the issue was to know if we activated the dark 
+    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+    themeButton.classList[selectedIcon === 'bx-moon' ? 'add' : 'remove'](iconTheme)
 }
 
-window.addEventListener('scroll', scrollTop)
+// Activate / deativate the theme manually with the button 
+themeButton.addEventListener('click', () => {
+    // Add or remove the dark / icon theme 
+    document.body.classList.toggle(darkTheme)
+    themeButton.classList.toggle(iconTheme)
+    // We save the theme and the current icon that the user chose 
+    localStorage.setItem('selected-theme', getCurrentTheme())
+    localStorage.setItem('selected-icon', getCurrentIcon())
+})
+
+
+
+/* ========== SCOLL REVEAL ANIMATION ==========*/
+const sr = ScrollReveal({
+    origin : 'top',
+    distance : '30px',
+    duration: 2000, 
+    reset:true
+});
+
+sr.reveal(`.home__data , .home__img, 
+            .about__data, .about__img,
+            .services__content, .menu__content, 
+            .app__data, .app__img, 
+            .contact__data, .contact__button, 
+            .footer__content`, { 
+                interval : 200 
+            })
+
